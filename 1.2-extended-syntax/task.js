@@ -23,7 +23,7 @@ function getAverageMark(marks) {
     let sum = 0;
     let averageMark;
 
-    for (let i=0; i < array.slice(0, 5).length; i++) { 
+    for (let i=0; i < total; i++) { 
         sum += array[i];
     };
     
@@ -38,15 +38,17 @@ function getAverageMark(marks) {
 
 function askDrink(name,dateOfBirthday) {
     
+    let today = new Date();
+    let yearToday = today.getFullYear();
+    let yearBirthday = dateOfBirthday.getFullYear();
+    let age = yearToday - yearBirthday;
+    let result
 
-    //getFullYear(dateOfBirthday) {
-    //    let age = new Date() - dateOfBirthday;
-    //    return age;
-    //}
+    if (age > 18) {
+        result = `Не желаете ли олд-фэшн, ${name}?`;
+    } else {
+        result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+    };
 
-    //if getFullYear() > 18 {
-
-    //}
-
-    //return result;
-}
+    return result;
+};
