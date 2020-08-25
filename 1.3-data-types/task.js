@@ -1,9 +1,25 @@
+"use strict"
+
 function calculateTotalMortgage(percent, contribution, amount, date) {
-    // код для задачи №1 писать здесь
-    // return totalAmount;
+    
+    let rate = Number(percent) / 100 / 12;
+
+    let period = date.getFullYear() - new Date().getFullYear();
+
+    let bodyOfLoan = Number(amount) - Number(contribution);
+
+    let payment = bodyOfLoan * (rate + rate / (Math.pow((1 + rate), period) - 1));
+
+    
+
+    return (payment * period).toFixed(2);
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
+    
+    if (name == "" || "undefined" || "null") {
+        name = "Аноним";
+    };
+
+    return `Привет, мир! Меня зовут ${name}`;
 }
