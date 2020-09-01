@@ -37,7 +37,7 @@ getAverageScore({
     algebra: [2, 4, 5, 2, 3, 4],
     geometry: [2, 4, 5],
     russian: [3, 3, 4, 5],
-   physics: [5, 5],
+    physics: [5, 5],
     music: [2, 2, 6],
     english: [4, 4, 3],
     poetry: [5, 3,4],
@@ -46,24 +46,35 @@ getAverageScore({
 });
 
 function getAverageScore(data) {
-    for (let prop in data) {
-        let value = data[prop];
+    let averageData = {}, average = 0, cont = 0, sum = 0;
+      
         
-        let averageData = {[prop]: getAverageMark(value)}
-    }
-
-    return {
-        avarege: getAverageMark()
-    }
-};
-
-function getAverageMark(marks) {
-    
-    for (let i = 0; marks.length; i++) {
-        let sum =+ marks[i];
-        let average = sum / marks.length;
+    for (let prop in data) {
+        
+        let marks = data[prop];
+        cont ++;
+        averageData[prop] = getAverageMark(marks);
+        sum = sum + averageData[prop];
     };
-   return average
+
+    if (sum == 0 && null && undefined && NaN) {
+        averageData.average = 0;
+    } else {
+        averageData.average = sum / cont;
+    };
+    
+    return averageData
+};
+  
+function getAverageMark(marks) {
+    let sum = 0, average = 0, total = marks.length;
+
+    for (let index = 0; index < total; index++) {
+        sum += marks[index];
+        average = sum / total;
+    };
+      
+    return average
 };
 
 getPersonData({aaa: 0, bbb: 0});
