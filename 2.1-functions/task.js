@@ -57,7 +57,7 @@ function getAverageScore(data) {
         sum = sum + averageData[prop];
     };
 
-    if (sum == 0 && null && undefined && NaN) {
+    if (sum == 0 || null || undefined || NaN) {
         averageData.average = 0;
     } else {
         averageData.average = sum / cont;
