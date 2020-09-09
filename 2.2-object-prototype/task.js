@@ -1,20 +1,14 @@
 "use strict"
 
-String.prototype.isPalindrome;
-
-new String("А роза упала на лапу Азора")
-
-function isPalindrome(string) {
-    this.str = string;
-    let strReverse = str.toLowerCase().split('').reverse().join('').split(' ').join('');
+String.prototype.isPalindrome = function() {
+    let strReverse = this.toLowerCase().split('').reverse().join('').split(' ').join('');
     
-    if (str.toLowerCase().split(' ').join('') === strReverse) {
+    if (this.toLowerCase().split(' ').join('') === strReverse) {
         return true;
     }   else {
         return false;
     };
 };
-
 
 function getAverageMark(marks) {
     let averageMark = 0, average = 0, sum = 0, total = marks.length;
@@ -28,10 +22,9 @@ function getAverageMark(marks) {
 };
 
 function checkBirthday(birthday) {
-    let date = new Date(), yearMs = 31536000000, verdict;
-    
-    let age = (+date - +birthday) / yearMs;
-
+    let date = new Date(), verdict;
+    let diff = (date.getTime() - new Date(birthday)) / (60 * 60 * 24 * 1000);
+    let age = diff / 365.242;
     
     if (age >= 18) {
         verdict = true;
