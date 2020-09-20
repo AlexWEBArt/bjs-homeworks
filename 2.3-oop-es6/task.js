@@ -101,3 +101,55 @@ class Library {
         return box;
     }
 };
+
+class StudentLog {
+    constructor(name) {
+        this.name = name;
+        this.score = {};
+    };
+
+    getName() {
+        return this.name;
+    };
+
+    addGrade(grade, subject) {
+    
+        if (grade <= 5 && grade >= 1) {
+            if (this.score[subject] != undefined) {
+                this.score[subject].push(grade);
+            } else {
+                this.score[subject] = [grade];
+            };
+
+            return this.score[subject].length;
+        } else {
+            return `Вы пытались поставить оценку "${grade}" по предмету "${subject}". Допускаются только числа от 1 до 5.\n${this.score[subject].length}`;
+        };
+    };
+
+    getAverageBySubject(subject) {
+        
+        if (this.score[subject] != undefined) {
+            let sum = 0, average = 0, total = this.score[subject].length;
+
+            for (let i = 0; i < total; i++) {
+            sum += this.score[subject][i];
+            average = sum / total;
+            };
+      
+            return average;
+        } else {
+            return 0;
+        }
+    }
+
+    getTotalAverage() {
+        let totalAverage = 0, cont = 0, totalScore = 0;
+          for (let prop in this.score) {
+              cont ++;
+              totalScore += this.getAverageBySubject(prop);
+              totalAverage = totalScore / cont;;
+          }
+          return totalAverage
+      }
+}
