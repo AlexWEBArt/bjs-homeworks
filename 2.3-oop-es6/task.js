@@ -94,11 +94,10 @@ class Library {
           if (this.books[i].name == bookName) {
             box = this.books[i];
             this.books.splice(i, 1);
-          } else {
-            box = null
           }
+          return box;
         }
-        return box;
+        return null;
     }
 };
 
