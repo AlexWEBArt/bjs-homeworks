@@ -24,17 +24,17 @@ class Triangle {
             this.a = a;
             this.b = b;
             this.c = c;
-        }
-    }
+        };
+    };
 
     getPerimeter() {
         return this.a + this.b + this.c;
-    }
+    };
 
     getArea() {
-        return Math.sqrt(this.getPerimeter() / 2 * (this.getPerimeter() / 2 - this.a) * (this.getPerimeter() / 2 - this.b) * (this.getPerimeter() / 2 - this.c)).toFixed(3)
-    }
-}
+        return Math.sqrt(this.getPerimeter() / 2 * (this.getPerimeter() / 2 - this.a) * (this.getPerimeter() / 2 - this.b) * (this.getPerimeter() / 2 - this.c)).toFixed(3);
+    };
+};
 
 function getTriangle(a, b, c) {
     try {
