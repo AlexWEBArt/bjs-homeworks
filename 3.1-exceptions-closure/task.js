@@ -50,6 +50,6 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle(a, b, c);
     } catch(e) {
-        return this.getPerimeter().getArea();
+        return Triangle.getPerimeter().getArea();
     };
 };
